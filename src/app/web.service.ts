@@ -12,9 +12,10 @@ export class WebService {
     constructor(private http: Http) {
         this.getMessages();
     }
-    async getMessages() {
+    async getMessages(user) {
         try{
-            var response = await this.http.get(this.BASE_URL +'/messages').toPromise();
+            user = (user)?'/'+user:'';
+            var response = await this.http.get(this.BASE_URL +'/messages'+ user).toPromise();
             this.messages = response.json();
 
         }catch(error){
