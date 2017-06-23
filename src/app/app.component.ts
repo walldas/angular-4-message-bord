@@ -1,17 +1,16 @@
 import { Component } from '@angular/core';
-import { MessagesComponent} from './messages-component';
-import {NewMessageComponent} from './new-message.component';
-
+import { NavComponent } from './nav.component';
 
 @Component({
   selector: 'my-app',
   template: `
   
-  <h1 class="text-center"> Message board:</h1>
+  <h1 class="text-center">
+   <nav></nav>
+   </h1>
   <div class="container">
 
-    <new-message></new-message>
-    <messages></messages>
+    <router-outlet></router-outlet>
 
   </div>
 

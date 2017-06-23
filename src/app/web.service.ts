@@ -13,12 +13,24 @@ export class WebService {
         this.getMessages();
     }
     async getMessages() {
-        var response = await this.http.get(this.BASE_URL +'/messages').toPromise();
-        this.messages = response.json();
+        try{
+            var response = await this.http.get(this.BASE_URL +'/messages').toPromise();
+            this.messages = response.json();
+
+        }catch(error){
+            console.error("negalima gauti zinuciu :( ");
+            
+        }
+        
     }
 
     async postMessage(message){
-        var response = await this.http.post(this.BASE_URL +'/messages',message).toPromise();
-        this.messages.push(response.json());
+        try{
+            var response = await this.http.post(this.BASE_URL +'/messages',message).toPromise();
+            this.messages.push(response.json());
+        }catch(error){
+            console.error("negalima gauti zinuciu :(  ble");
+            
+        }
     }
 }
